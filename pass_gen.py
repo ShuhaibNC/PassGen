@@ -12,8 +12,9 @@ Usage: python pass_gen.py [MAXIMUM] [OPTIONS] [STRINGS]
 
 OPTIONS:
     -o              Output filename with extension
+    --help -h       Print help message and exit
 
-Try 'python pass_gen.py --help | -h for more info'""")
+Try 'python pass_gen.py --help' for more info""")
 
 if len(argv) < 2:
     help()
