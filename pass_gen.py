@@ -8,7 +8,12 @@ flag = 0
 
 def help():
     print("""
-pass_gen --help: To see this message      SYNTAX:                                   pass_gen [number of passwords to generate]          """)
+Usage: python pass_gen.py [MAXIMUM] [OPTIONS] [STRINGS] 
+
+OPTIONS:
+    -o              Output filename with extension
+
+Try 'python pass_gen.py --help | -h for more info'""")
 
 if len(argv) < 2:
     help()
