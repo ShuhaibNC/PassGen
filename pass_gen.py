@@ -5,22 +5,16 @@ from sys import argv
 import os
 
 flag = 0
-try:
-    if_num = int(argv[1])
-except ValueError:
-    if_num = 1
-try:
-    if if_num <= 0 or argv[1] == '--help' or argv[1] == '-h':
-        print("""
-pass_gen --help: To see this message
-SYNTAX:
-pass_gen [number of passwords to generate]
-          """)
-        exit()
-except IndexError:
-    print("""                                                                          pass_gen --help: To see this message
-SYNTAX
-    pass_gen [number of passwords to generate]                                                       """)
+
+def help():
+    print("""
+pass_gen --help: To see this message      SYNTAX:                                   pass_gen [number of passwords to generate]          """)
+
+if len(argv) < 2:
+    help()
+
+if argv[1] == '--help' or argv[1] == '-h':
+    help()
     exit()
 while flag < int(argv[1]):
     print(f"[{flag+1}] Creating password...")
@@ -31,7 +25,11 @@ while flag < int(argv[1]):
     num = str(random.randrange(100))
     punct = random.choice(string.punctuation)
     passw = adj + noun + num + punct
-    with open('pass.txt', 'a') as f:
+    if '-o' in argv:
+        filename = argv[argv.index('-o') + 1]
+    elif '-o' not in argv:
+        filename = 'pass.txt'
+    with open(filename, 'a') as f:
         f.write(passw + '\n')
     flag += 1
-os.system("echo -e Passwords are stored in $(pwd)/pass.txt")
+print('Passwords are stored in', os.getcwd()+'/'+filename)
