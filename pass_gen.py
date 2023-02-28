@@ -18,6 +18,7 @@ Try 'python pass_gen.py --help' for more info""")
 
 if len(argv) < 2:
     help()
+    exit()
 
 if argv[1] == '--help' or argv[1] == '-h':
     help()
