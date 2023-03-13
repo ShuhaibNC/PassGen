@@ -8,7 +8,8 @@ flag = 0
 
 def help():
     print("""
-Usage: python pass_gen.py [MAXIMUM] [OPTIONS] [STRINGS] 
+USAGE: 
+    python pass_gen.py [MAXIMUM] [OPTIONS] [STRINGS]
 
 OPTIONS:
     -o              Output filename with extension
